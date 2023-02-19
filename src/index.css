@@ -2,9 +2,117 @@
   box-sizing: border-box;  
 }
 
-
-.choices {
-  
-  display: inline-block;
-  margin: 0.2em;
+html {
+  font-family: 'Inter', sans-serif;
+  color: #293264;
+   
 }
+
+body {
+  width: 100%;
+  background-color: #F5F7FB;
+  margin: 0;
+}
+
+/* =======TYPOGRAPHY======== 
+============================*/
+
+.intro-page-title,
+.question-card-title{
+  font-family: 'Karla', sans-serif;
+}
+
+.intro-page-title,
+.quiz-score {font-weight: 700;}
+
+.intro-page-title{margin: 0;}
+
+.intro-page-desc {font-weight: 400;}
+.choice,.intro-page-btn {font-weight: 500;}
+
+.quiz-btn{font-weight: 600;}
+
+
+/*============ LAYOUT============ 
+===============================*/
+
+main {
+  max-width: 600px;
+  margin: auto;
+
+}
+
+.intro-page {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.intro-page-desc {
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 2em
+  
+}
+
+/* .intro-page-btn {
+  
+} */
+
+.question-card {
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  /* box-shadow:0 3px 10px #2df5379e; */
+  margin: 1em 50px;
+  padding: 1em;
+}
+
+.choices-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+}
+
+.choice {
+  margin: 0.2em;
+  border-radius: 15px;
+  padding: 0.8em;
+  font-family: 'Inter', sans-serif;
+  border-color: #4D5B9E;
+}
+
+.quiz-end-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  margin: auto;
+  
+}
+
+.quiz-btn{
+  margin: 2em auto;
+  
+}
+
+
+
+
+/* MODIFIERS */
+
+.blue-accent {
+  background-color: #4D5B9E;
+  color: #F5F7FB;
+  padding: 1em 3.5em;
+  border-radius: 15px;
+  border: none;
+  font-family: "Inter";
+  
+}
+
+

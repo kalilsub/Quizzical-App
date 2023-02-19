@@ -143,24 +143,32 @@ function App() {
       <main>
         {start ? 
       
-      <div>
-        <h1>Game {newRound}</h1>
+      <div className='quiz'>
+        <h1>Quiz {newRound}</h1>
         {quizzElements}
-        {isFinished ? 
-        <button onClick={newGame}>New Game</button> : 
-        <button onClick={checkAnswers}>Submit Quiz</button> }
+
+        <div className='quiz-end-container'>
+          {isFinished && <p className='quiz-score'>You scored {points}/5 points</p>}
+          {isFinished ? 
+          <button onClick={newGame} className="quiz-btn blue-accent">New Game</button> : 
+          <button onClick={checkAnswers} className="quiz-btn blue-accent">Check answers</button> }
+        </div>
         
-        {isFinished && <p>You scored {points} points</p>}
       </div>
       
           :
     <div className='intro-page'>
-        <h1>Quizzical</h1>
-        <p>Some description if needed</p>
-        <button onClick={startQuiz}>Start Quiz</button>
+        <h1 className='intro-page-title'>Quizzical</h1>
+        <p className='intro-page-desc'>Welcome to this Silly Goofy ahh Trivia Game</p>
+        <button 
+        onClick={startQuiz}
+        className="intro-page-btn blue-accent"
+        >
+          Start Quiz
+        </button>
     </div>
     }
-      </main>
+    </main>
     
   )
     
