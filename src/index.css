@@ -48,7 +48,7 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
 }
 
@@ -80,7 +80,7 @@ main {
 
 .choice {
   margin: 0.2em;
-  border-radius: 15px;
+  border-radius: 17px;
   padding: 0.8em;
   font-family: 'Inter', sans-serif;
   border-color: #4D5B9E;
@@ -108,11 +108,74 @@ main {
 .blue-accent {
   background-color: #4D5B9E;
   color: #F5F7FB;
-  padding: 1em 3.5em;
-  border-radius: 15px;
+  padding: 1em 3em;
+  border-radius: 50px;
   border: none;
   font-family: "Inter";
   
 }
 
+
+
+/* =========== LARGER SCREENS ============
+==================================== */
+
+@media (min-width:750px) {
+  
+  main {
+    max-width: 900px;
+  }
+
+  .choices-container{
+    display: grid;
+    grid-template-columns: 30% 30%;
+    justify-content: space-evenly;
+  }
+
+  .choice {
+    margin-right: 1em;
+    padding: 0.8em 1em;
+  }
+
+  .question-card{
+    padding: 1em 2em;
+  }
+
+  .blue-accent {
+    font-size: 1.3rem;
+  }
+
+  /* TYPOGRAPHY LARGER SCREENS */
+  .intro-page-title{
+    font-size: 3rem;
+  }
+
+  .intro-page-desc{
+    font-size: larger;
+  }
+  .question-card-title{
+    font-size: 1.5rem;
+  }
+  .choice{
+    font-size: 1rem;
+  }
+
+  .quiz-score{
+    font-size: 1.5rem;
+  }
+
+}
+
+
+@media (min-width: 1000px) {
+
+  .choices-container{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .choice{margin-right: 2em;}
+}
 
