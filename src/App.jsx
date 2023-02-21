@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import Question from './components/Question'
+import Loader from './components/Loader'
 import {decode} from "html-entities"
 import {nanoid} from "nanoid"
 
@@ -14,16 +15,29 @@ function App() {
   const [isFinished, setIsFinished] = useState(false)
   //starts a new Quiz round
   const [newRound, setNewRound] = useState(1)
+
+  const [loader, setLoader] = useState(true)
+
+
   
   //effect only runs when a new round is played
   useEffect(()=>{
-    
-    fetch("https://opentdb.com/api.php?amount=5")
-        .then(res => res.json())
-        .then(data => {
-          
-          setQuestions(getApiQuestions(data))
-        })
+    window.scroll(0,0)
+    //enhance UX, render a custom loader between api calls :)
+    setLoader(true)
+    setTimeout(() => {
+      
+      fetch("https://opentdb.com/api.php?amount=5")
+          .then(res => res.json())
+          .then(data => {
+            
+            setQuestions(getApiQuestions(data))
+            setLoader(false)
+          })
+    }, 500);
+
+        
+
   },[newRound])
   
   function startQuiz() {
@@ -121,7 +135,9 @@ function App() {
     setIsFinished(prevState => !prevState)
     setNewRound((prevRound)=> prevRound +1)
     
+    
   }
+
 
 
 
@@ -141,12 +157,15 @@ function App() {
 
   return (
       <main>
+        <div className="shape-blob"></div>
+        <div className="shape-blob one"></div>
+        
         {start ? 
       
       <div className='quiz'>
         <h1>Quiz {newRound}</h1>
-        {quizzElements}
-
+        {loader ? <Loader/> :quizzElements }
+        
         <div className='quiz-end-container'>
           {isFinished && <p className='quiz-score'>You scored {points}/5 points</p>}
           {isFinished ? 
@@ -158,6 +177,7 @@ function App() {
       
           :
     <div className='intro-page'>
+      
         <h1 className='intro-page-title'>Quizzical</h1>
         <p className='intro-page-desc'>Welcome to this Silly Goofy ahh Trivia Game</p>
         <button 
@@ -168,6 +188,8 @@ function App() {
         </button>
     </div>
     }
+    <div className="shape-blob two"></div>
+    <div className="shape-blob three"></div>
     </main>
     
   )
